@@ -12,12 +12,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         GameObject collided = collision.gameObject;
-        if(collided.tag == "Tree")
-        {
+        if(collided.tag == "Tree" || collided.tag == "Enemy") {
             Destroy(collided);
         }
-        if (collided.tag != "Player")
-        {
+        if (collided.tag != "Player") {
             Destroy(gameObject);
         }
     }
