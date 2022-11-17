@@ -37,6 +37,15 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""eb9a676f-4da5-4690-a963-f4cf8920e56b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""ec3ec597-429f-4d21-96ee-4269dd2879dc"",
@@ -103,6 +112,61 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""1c39d6b3-4ea6-482e-af50-6bf1313167d5"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4f53b39a-68e9-4302-a693-7de6956f1e0d"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5831c1a6-9935-4b23-b05f-82c287c1faaa"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""203841fc-ad07-40d3-bc67-e4bb0d54ef90"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9b212acf-d649-40ab-bfcc-8e55da38575e"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""9eec7b67-1795-4bfe-96fb-d8d3759ba0aa"",
                     ""path"": ""<Mouse>/leftButton"",
@@ -112,6 +176,72 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e44eed3c-0a29-4bf5-ae2a-76e3aa5e302b"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Right Stick"",
+                    ""id"": ""782d0ddf-0224-4e58-bfc0-a4e96e6b54c5"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0b0c327b-a64c-4e8f-89dd-919769857966"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""08c848cf-fb31-40bf-8a8d-feed59483495"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""464a468e-e9f4-44aa-b57d-21d8faf72c79"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3e827c03-fe78-477e-94ba-002f19e11f3d"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -127,6 +257,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         // Ground
         m_Ground = asset.FindActionMap("Ground", throwIfNotFound: true);
         m_Ground_Move = m_Ground.FindAction("Move", throwIfNotFound: true);
+        m_Ground_Aim = m_Ground.FindAction("Aim", throwIfNotFound: true);
         m_Ground_Shoot = m_Ground.FindAction("Shoot", throwIfNotFound: true);
     }
 
@@ -188,12 +319,14 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ground;
     private IGroundActions m_GroundActionsCallbackInterface;
     private readonly InputAction m_Ground_Move;
+    private readonly InputAction m_Ground_Aim;
     private readonly InputAction m_Ground_Shoot;
     public struct GroundActions
     {
         private @PlayerInp m_Wrapper;
         public GroundActions(@PlayerInp wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Ground_Move;
+        public InputAction @Aim => m_Wrapper.m_Ground_Aim;
         public InputAction @Shoot => m_Wrapper.m_Ground_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
@@ -207,6 +340,9 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnMove;
+                @Aim.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnAim;
                 @Shoot.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
@@ -217,6 +353,9 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -236,6 +375,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
     public interface IGroundActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
     }
 }

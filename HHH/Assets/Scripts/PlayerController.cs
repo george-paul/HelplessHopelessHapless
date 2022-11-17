@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 lookVec; // public to get shoot direction
 
+    private bool usingMouse = true;
+
     private Rigidbody2D rb;
     private Vector2 moveVec;
 
@@ -28,8 +30,20 @@ public class PlayerController : MonoBehaviour
         moveVec = inp.Ground.Move.ReadValue<Vector2>();
         
         // look
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        lookVec = new Vector2(worldPoint.x, worldPoint.y) - rb.position;
+        if (Mouse.current.delta.EvaluateMagnitude() > 1) {
+            usingMouse = true;
+        }
+        if (inp.Ground.Aim.ReadValue<Vector2>().magnitude > 0) {
+            usingMouse = false;
+        }
+
+        if (usingMouse) {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            lookVec = new Vector2(worldPoint.x, worldPoint.y) - rb.position;
+        }
+        else {
+            lookVec = inp.Ground.Aim.ReadValue<Vector2>();
+        }
     }
 
     private void FixedUpdate() {
