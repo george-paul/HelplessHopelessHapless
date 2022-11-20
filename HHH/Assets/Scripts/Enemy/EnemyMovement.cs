@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    public float followSpeed = 2f;
+    public float followSpeed;
     
     private Rigidbody2D rb;
     private Rigidbody2D playerRb;
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate() {
         Vector2 followVec = (playerRb.position - rb.position).normalized;
-        rb.MovePosition(rb.position + followVec * 2f * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + followVec * followSpeed * Time.fixedDeltaTime);
         rb.rotation = Mathf.Atan2(followVec.y, followVec.x) * Mathf.Rad2Deg - 90f;
     }
 }

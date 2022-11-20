@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public bool isSpawningEnemies = true;
-    public float spawnDelay = 5.0f;
+    public float spawnDelay;
     public GameObject enemyPrefab;
     private Transform player;
     private float radius;

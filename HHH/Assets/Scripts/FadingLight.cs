@@ -16,6 +16,9 @@ public class FadingLight : MonoBehaviour
 
     private void FixedUpdate() {
         lightToFade.intensity -= maxIntensity * (Time.fixedDeltaTime / fadeTime);
-        if(lightToFade.intensity <=0) Destroy(gameObject);
+        if(lightToFade.intensity <=0){
+            Destroy(gameObject);
+        }
+            
     }
 }

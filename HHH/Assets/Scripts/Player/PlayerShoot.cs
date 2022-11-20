@@ -5,11 +5,8 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject barrelEnd;
- 
-    public float muzzleVel = 20f;
 
-    private Rigidbody2D rb;
-    
+    public float muzzleVel;
     
     // input
     private PlayerInp inp;
@@ -17,7 +14,6 @@ public class PlayerShoot : MonoBehaviour
         inp = new PlayerInp();
     }
     private void OnEnable() {
-        rb = GetComponent<Rigidbody2D>();
         inp.Enable();
         inp.Ground.Shoot.started += Shoot;
     }
@@ -26,7 +22,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Shoot (InputAction.CallbackContext ctx) {
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelEnd.transform.position, barrelEnd.transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, barrelEnd.transform.position, barrelEnd.transform.rotation);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.AddForce(barrelEnd.transform.up * muzzleVel, ForceMode2D.Impulse);
     }

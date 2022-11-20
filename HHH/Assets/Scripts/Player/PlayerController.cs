@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6f;
+    public float speed;
 
     public Vector2 lookVec; // public to get shoot direction
 

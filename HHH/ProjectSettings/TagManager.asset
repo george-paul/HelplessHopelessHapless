@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Tree
   - Enemy
+  - Bullet_Player
+  - Bullet_Enemy
   layers:
   - Default
   - TransparentFX
