@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float travelTime;
-    public int damage = 1;
+    public float damage = 1.0f;
     
     private void Start() {
         Destroy(gameObject, travelTime);
@@ -21,7 +21,7 @@ public class EnemyBullet : MonoBehaviour
 
         // damage player
         if(collided.CompareTag("Player")) {
-            collided.GetComponent<PlayerAttributes>().hitPoints -= damage;
+            collided.GetComponent<PlayerAttributes>().TakeDamage(damage);
         }
 
         Destroy(gameObject);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public float damageDone = 1;
     public float travelTime;
     
     private void Start() {
@@ -19,8 +20,13 @@ public class PlayerBullet : MonoBehaviour
         }
 
         // bullet destroys these
-        if(collided.CompareTag("Tree") || collided.CompareTag("Enemy")) {
+        if(collided.CompareTag("Tree") ) {
             Destroy(collided);
+        }
+
+        // damage Enemies
+        if(collided.CompareTag("Enemy")) {
+            collided.GetComponent<EnemyAttributes>().TakeEnemyDamage(damageDone);
         }
 
         Destroy(gameObject);
