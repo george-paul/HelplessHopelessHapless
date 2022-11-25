@@ -55,7 +55,7 @@ public class CustomUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerClick(PointerEventData eventData)
     {
         StartCoroutine(Transition(hoverScale, hoverColor, 0.1f));
-        // OnEvent.Invoke();
+        OnEvent.Invoke();
         //Debug.Log("OnPointerClick");
     }
 
