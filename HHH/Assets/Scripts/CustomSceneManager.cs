@@ -33,6 +33,12 @@ public class CustomSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneList.MainMenuScene.ToString());
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
+
     // For future development
     // public void LoadNextScene()
     // {
