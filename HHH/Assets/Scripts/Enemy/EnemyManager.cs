@@ -12,16 +12,25 @@ public class EnemyManager : MonoBehaviour
 
     private void Start() {
         player = GameObject.FindWithTag("Player").transform;
-        StartCoroutine(EnemySpawner());
         radius = Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0,0,Camera.main.nearClipPlane)), Camera.main.ViewportToWorldPoint(new Vector3(0.5f,0.5f,Camera.main.nearClipPlane)) );
         radius += 3;
+        StartSpawning();
+    }
+
+    public void StartSpawning() {
+        isSpawningEnemies = true;
+        StartCoroutine(EnemySpawner());
+    }
+
+    public void StopSpawning() {
+        isSpawningEnemies = false;
     }
 
     IEnumerator EnemySpawner()
     {
+        yield return new WaitForSeconds(spawnDelay);
         while(isSpawningEnemies)
         {
-            yield return new WaitForSeconds(spawnDelay);
             
             Vector3 nextSpawnPoint = Random.onUnitSphere;
             nextSpawnPoint.z = 0;
@@ -32,6 +41,8 @@ public class EnemyManager : MonoBehaviour
             // TODO: prevent spawning outside the walls (maybe just destroy enemies if outside walls)
             
             Instantiate(enemyPrefab, nextSpawnPoint, Quaternion.identity);
+            
+            yield return new WaitForSeconds(spawnDelay);
         }
         yield break;
     }

@@ -15,7 +15,7 @@ public class EnemyBullet : MonoBehaviour
         GameObject collided = collision.gameObject;
 
         // bullet ignores these
-        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Enemy")) {
+        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Enemy") || collided.gameObject.name == "Global Light Trigger") {
             return;
         }
 

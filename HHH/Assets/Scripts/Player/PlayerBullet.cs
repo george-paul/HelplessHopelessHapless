@@ -15,7 +15,7 @@ public class PlayerBullet : MonoBehaviour
         GameObject collided = collision.gameObject;
 
         // bullet ignores these
-        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Player")) {
+        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Player") || collided.gameObject.name == "Global Light Trigger") {
             return;
         }
 
@@ -27,6 +27,11 @@ public class PlayerBullet : MonoBehaviour
         // damage Enemies
         if(collided.CompareTag("Enemy")) {
             collided.GetComponent<EnemyAttributes>().TakeEnemyDamage(damageDone);
+        }
+
+        // toggle button puzzle buttons
+        if(collided.CompareTag("Button")) {
+            collided.GetComponent<ShootButton>().ToggleButton();
         }
 
         Destroy(gameObject);
