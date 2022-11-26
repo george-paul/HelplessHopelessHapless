@@ -37,26 +37,22 @@ public class CustomUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         StartCoroutine(Transition(hoverScale, hoverColor, 0.1f));
         //OnEvent.Invoke();
-        //Debug.Log("OnPointerEnter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         StartCoroutine(Transition(defaultScale, defaultColor, 0.1f));
-        //Debug.Log("OnPointerExit");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         StartCoroutine(Transition(pressedScale, pressedColor, 0.1f));
-        //Debug.Log("OnPointerDown");
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         StartCoroutine(Transition(hoverScale, hoverColor, 0.1f));
         OnEvent.Invoke();
-        //Debug.Log("OnPointerClick");
     }
 
     public IEnumerator Transition(Vector3 newSize, Color newColor, float transitionTime)

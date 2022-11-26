@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class ShootButton : MonoBehaviour
+public class ShootButtonForDoor : MonoBehaviour
 {
     public bool isOn = false;
     public Sprite onSprite;

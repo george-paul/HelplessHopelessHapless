@@ -11,9 +11,7 @@ public class DoorOpening : MonoBehaviour
 
     private void OnEnable() {
         // de-negativify the angles
-        Debug.Log(transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x % 360, transform.rotation.eulerAngles.y % 360, transform.rotation.eulerAngles.z % 360);
-        Debug.Log(transform.rotation.eulerAngles.z);
 
         closedAngle = transform.rotation.eulerAngles.z;
         openAngle = (closedAngle + 90);
@@ -35,11 +33,10 @@ public class DoorOpening : MonoBehaviour
         {
             float step = (openAngle - closedAngle) * (Time.deltaTime/movingTime);
             transform.Rotate(new Vector3(0,0,1), (isOpen)?(step):(-step) );
-            Debug.Log(transform.rotation.eulerAngles.z);
+
             yield return null;
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, (isOpen)?openAngle:closedAngle);
-        // Debug.Log("Finished toggling");
         yield break;
     }
 }

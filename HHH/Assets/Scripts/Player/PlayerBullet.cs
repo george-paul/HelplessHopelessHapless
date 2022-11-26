@@ -31,7 +31,7 @@ public class PlayerBullet : MonoBehaviour
 
         // toggle button puzzle buttons
         if(collided.CompareTag("Button")) {
-            collided.GetComponent<ShootButton>().ToggleButton();
+            collided.GetComponent<ShootButtonForDoor>().ToggleButton();
         }
 
         Destroy(gameObject);

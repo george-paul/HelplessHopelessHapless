@@ -36,7 +36,6 @@ public class CustomSceneManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quit Game");
     }
 
     // For future development
