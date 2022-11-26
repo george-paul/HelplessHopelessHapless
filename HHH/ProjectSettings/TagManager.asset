@@ -12,6 +12,7 @@ TagManager:
   - Button
   - Mirror
   - SplitterInput
+  - LaserTarget
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,11 @@ public class SplitterOutput : MonoBehaviour
                 else if (hit.collider.CompareTag("SplitterInput")) {
                     // end reflection and enable splitter
                     laserPoints.Add(hit.point);
-                    hit.collider.gameObject.GetComponent<SplitterOutput>().outputActiveThisFrame = true;           
+                    hit.collider.gameObject.GetComponent<SplitterOutput>().outputActiveThisFrame = true;         
+                }
+                else if (hit.collider.CompareTag("LaserTarget")) {
+                    laserPoints.Add(hit.point);
+                    hit.collider.gameObject.GetComponent<LaserTarget>().isActiveThisFrame = true;         
                 }
                 else {
                     // end laser

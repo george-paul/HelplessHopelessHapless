@@ -35,6 +35,10 @@ public class LaserBeam : MonoBehaviour
                     laserPoints.Add(hit.point);
                     hit.collider.gameObject.GetComponent<SplitterOutput>().outputActiveThisFrame = true;         
                 }
+                else if (hit.collider.CompareTag("LaserTarget")) {
+                    laserPoints.Add(hit.point);
+                    hit.collider.gameObject.GetComponent<LaserTarget>().isActiveThisFrame = true;         
+                }
                 else {
                     // end laser
                     laserPoints.Add(hit.point);
