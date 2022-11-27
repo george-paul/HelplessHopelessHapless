@@ -74,6 +74,7 @@ public class Dialogue : MonoBehaviour
         if(dialogueText.text == dialogueLines[index])
         {
             StartCoroutine(DelayDisappear(delay));
+            fixUpdate = false;
         }
     }
 
@@ -143,6 +144,7 @@ public class Dialogue : MonoBehaviour
         if (other.name.CompareTo("Maze Trigger") == 0 || other.name.CompareTo("Laser Puzzle Trigger") == 0 || other.name.CompareTo("Paavam Hapless") == 0 || other.name.CompareTo("Boss Battle") == 0)
         {
             playerIsClose = false;
+            fixUpdate = false;
             zeroText();
         }
     }

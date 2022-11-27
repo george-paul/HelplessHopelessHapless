@@ -240,11 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2840a1ef63a898440a405f6b70cc40a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleVel: 10
+  muzzleVel: 20
   isShooting: 1
-  shootDelay: 1.5
+  shootDelay: 1
   cardinalDelay: 0.4
-  enemyBulletPrefab: {fileID: 9107867447989757762, guid: cc6d391837addb545aec6f7a77470d19, type: 3}
+  enemyBulletPrefab: {fileID: 8699844170291196054, guid: 03a033f5e6fc8d94bbb264c8e3e514a4, type: 3}
   cardinalBarrelEndUp: {fileID: 0}
   cardinalBarrelEndDown: {fileID: 0}
   cardinalBarrelEndLeft: {fileID: 0}
@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCardinal: 1
-  enemyHp: 20
-  maxEnemyHp: 20
+  enemyHp: 40
+  maxEnemyHp: 40
 --- !u!50 &2410393066716528721
 Rigidbody2D:
   serializedVersion: 4
