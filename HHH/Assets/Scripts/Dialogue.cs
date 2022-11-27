@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
+    enum DialogueMap
+    {
+        MazeEntry
+    };
     [SerializeField] float delay = 3f;
 
     public Image dialoguePanel;
@@ -89,7 +93,6 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered: " + other.name);
         if (other.name.CompareTo("Maze Trigger") == 0)
         {
             playerIsClose = true;
@@ -98,7 +101,6 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Exited: " + other.name);
         if (other.name.CompareTo("Maze Trigger") == 0)
         {
             playerIsClose = false;

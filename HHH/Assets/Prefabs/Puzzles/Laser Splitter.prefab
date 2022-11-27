@@ -81,7 +81,7 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.037626296
+        time: 0.041319057
         value: 0.04155433
         inSlope: 0
         outSlope: 0
@@ -90,7 +90,7 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.11006528
+        time: 0.11375804
         value: 0.20069236
         inSlope: 0
         outSlope: 0
@@ -459,7 +459,7 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.037626296
+        time: 0.041319057
         value: 0.04155433
         inSlope: 0
         outSlope: 0
@@ -468,7 +468,7 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.11006528
+        time: 0.11375804
         value: 0.20069236
         inSlope: 0
         outSlope: 0

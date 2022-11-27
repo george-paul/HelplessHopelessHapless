@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 7459928065927571758}
   - component: {fileID: 2684335292985780980}
   - component: {fileID: 5300582668699855078}
-  - component: {fileID: 6378147263564180506}
+  - component: {fileID: 9117259189328508297}
   - component: {fileID: 2410393066716528721}
   - component: {fileID: 8471489082684020419}
   m_Layer: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 3
---- !u!114 &6378147263564180506
+--- !u!114 &9117259189328508297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab95caf2b90385844bad0c024290100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCardinal: 1
   enemyHp: 20
   maxEnemyHp: 20
 --- !u!50 &2410393066716528721
@@ -494,6 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1513110201236641902}
   - component: {fileID: 3597448488341063209}
+  - component: {fileID: 6643104564457675840}
   m_Layer: 0
   m_Name: Cardinal Light
   m_TagString: Untagged
@@ -595,6 +597,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6643104564457675840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264141448951128498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aae2070483c7da4d85eaa7c3e0ca297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 1
 --- !u!1 &6485402420806782293
 GameObject:
   m_ObjectHideFlags: 0
