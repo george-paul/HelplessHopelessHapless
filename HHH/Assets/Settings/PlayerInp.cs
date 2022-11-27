@@ -71,6 +71,15 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RestartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""9cfed02f-306d-4f11-9771-e45f0055b204"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,17 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""action"": ""RotateSelection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1ffbdb0-df44-482c-b4e7-bb753589eb27"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RestartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -367,6 +387,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         m_Ground_Shoot = m_Ground.FindAction("Shoot", throwIfNotFound: true);
         m_Ground_MoveSelector = m_Ground.FindAction("MoveSelector", throwIfNotFound: true);
         m_Ground_RotateSelection = m_Ground.FindAction("RotateSelection", throwIfNotFound: true);
+        m_Ground_RestartGame = m_Ground.FindAction("RestartGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -431,6 +452,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
     private readonly InputAction m_Ground_Shoot;
     private readonly InputAction m_Ground_MoveSelector;
     private readonly InputAction m_Ground_RotateSelection;
+    private readonly InputAction m_Ground_RestartGame;
     public struct GroundActions
     {
         private @PlayerInp m_Wrapper;
@@ -440,6 +462,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Ground_Shoot;
         public InputAction @MoveSelector => m_Wrapper.m_Ground_MoveSelector;
         public InputAction @RotateSelection => m_Wrapper.m_Ground_RotateSelection;
+        public InputAction @RestartGame => m_Wrapper.m_Ground_RestartGame;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +487,9 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @RotateSelection.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
                 @RotateSelection.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
                 @RotateSelection.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
+                @RestartGame.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnRestartGame;
+                @RestartGame.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnRestartGame;
+                @RestartGame.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnRestartGame;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -483,6 +509,9 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @RotateSelection.started += instance.OnRotateSelection;
                 @RotateSelection.performed += instance.OnRotateSelection;
                 @RotateSelection.canceled += instance.OnRotateSelection;
+                @RestartGame.started += instance.OnRestartGame;
+                @RestartGame.performed += instance.OnRestartGame;
+                @RestartGame.canceled += instance.OnRestartGame;
             }
         }
     }
@@ -503,5 +532,6 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnMoveSelector(InputAction.CallbackContext context);
         void OnRotateSelection(InputAction.CallbackContext context);
+        void OnRestartGame(InputAction.CallbackContext context);
     }
 }

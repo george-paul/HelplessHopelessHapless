@@ -13,6 +13,7 @@ TagManager:
   - Mirror
   - SplitterInput
   - LaserTarget
+  - Helpless
   layers:
   - Default
   - TransparentFX

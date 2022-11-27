@@ -34,13 +34,13 @@ public class Dialogue : MonoBehaviour
                 "Hey! This looks like a maze!! Let's go in and see if we can find something useful"
             },
             new string[] {
-                "HaplessEntry"
+                "Is that... Hapless? No... How... This wasn't supposed to happen. We were supposed to find you... Alive."
             },
             new string[] {
-                "BossBattle"
+                "What in great tarnation is that thing?! [BOSS MUSIC STARTS]"
             },
             new string[] {
-                "LaserPuzzle"
+                "That's a lot of lasers. I wonder whether the lasers can power the lamps and let me through"
             },
         };
 
@@ -121,16 +121,26 @@ public class Dialogue : MonoBehaviour
             dialogueLines = dialogues[((int)DialogueMap.MazeEntry)];
             playerIsClose = true;
         }
-        if (other.name.CompareTo("Laser Puzzle Trigger") == 0)
+        else if (other.name.CompareTo("Laser Puzzle Trigger") == 0)
         {
             dialogueLines = dialogues[((int)DialogueMap.LaserPuzzle)];
+            playerIsClose = true;
+        }
+        else if (other.name.CompareTo("Paavam Hapless") == 0)
+        {
+            dialogueLines = dialogues[((int)DialogueMap.HaplessEntry)];
+            playerIsClose = true;
+        }
+        else if (other.name.CompareTo("Boss Battle") == 0)
+        {
+            dialogueLines = dialogues[((int)DialogueMap.BossBattle)];
             playerIsClose = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name.CompareTo("Maze Trigger") == 0 || other.name.CompareTo("Laser Puzzle Trigger") == 0)
+        if (other.name.CompareTo("Maze Trigger") == 0 || other.name.CompareTo("Laser Puzzle Trigger") == 0 || other.name.CompareTo("Paavam Hapless") == 0 || other.name.CompareTo("Boss Battle") == 0)
         {
             playerIsClose = false;
             zeroText();

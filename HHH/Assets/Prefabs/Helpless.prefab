@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8524125684755430304}
   - component: {fileID: 8524125684755430305}
   - component: {fileID: 7180252529983647368}
+  - component: {fileID: 3985661402723054142}
   m_Layer: 0
   m_Name: Helpless
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,3 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.34
+--- !u!114 &3985661402723054142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8524125684755430307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6f854a85b4c3f4c9471b5bcf9554b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHelpless: 1
+  hitPoints: 10
+  maxHitPoints: 10

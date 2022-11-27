@@ -20,7 +20,7 @@ public class EnemyBullet : MonoBehaviour
         }
 
         // damage player
-        if(collided.CompareTag("Player")) {
+        if(collided.CompareTag("Player") || collided.CompareTag("Helpless")) {
             collided.GetComponent<PlayerAttributes>().TakeDamage(damage);
         }
 
