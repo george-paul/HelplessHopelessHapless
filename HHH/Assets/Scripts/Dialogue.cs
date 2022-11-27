@@ -7,8 +7,15 @@ public class Dialogue : MonoBehaviour
 {
     enum DialogueMap
     {
-        MazeEntry
+        MazeEntry,
+        HaplessEntry,
+        BossBattle,
+        LaserPuzzle,
     };
+
+    private string[][] dialogues = new string[][] {};
+
+
     [SerializeField] float delay = 3f;
 
     public Image dialoguePanel;
@@ -21,6 +28,22 @@ public class Dialogue : MonoBehaviour
     public bool fixUpdate = false;
 
     private void OnEnable() {
+
+        dialogues = new string[][] {
+            new string[] {
+                "Hey! This looks like a maze!! Let's go in and see if we can find something useful"
+            },
+            new string[] {
+                "HaplessEntry"
+            },
+            new string[] {
+                "BossBattle"
+            },
+            new string[] {
+                "LaserPuzzle"
+            },
+        };
+
         dialoguePanel = GameObject.Find("/Canvas/DialoguePanel").GetComponent<Image>();
         dialogueText = GameObject.Find("/Canvas/DialoguePanel/DialogueText").GetComponent<Text>();
     }
@@ -95,13 +118,19 @@ public class Dialogue : MonoBehaviour
     {
         if (other.name.CompareTo("Maze Trigger") == 0)
         {
+            dialogueLines = dialogues[((int)DialogueMap.MazeEntry)];
+            playerIsClose = true;
+        }
+        if (other.name.CompareTo("Laser Puzzle Trigger") == 0)
+        {
+            dialogueLines = dialogues[((int)DialogueMap.LaserPuzzle)];
             playerIsClose = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name.CompareTo("Maze Trigger") == 0)
+        if (other.name.CompareTo("Maze Trigger") == 0 || other.name.CompareTo("Laser Puzzle Trigger") == 0)
         {
             playerIsClose = false;
             zeroText();

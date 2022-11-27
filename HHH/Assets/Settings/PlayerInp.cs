@@ -53,6 +53,24 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveSelector"",
+                    ""type"": ""Value"",
+                    ""id"": ""a9d8c6b5-e008-43b9-b62b-3a4b9bea52fc"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RotateSelection"",
+                    ""type"": ""Button"",
+                    ""id"": ""319a493a-57a7-4f33-bb97-7f07a3d3f179"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -253,6 +271,72 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""DPad"",
+                    ""id"": ""810658b9-22b3-4780-ba03-05447a4135ce"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveSelector"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""42eb9994-3d75-4296-b3d2-5962842ea780"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveSelector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""37d7eb6a-ae41-410d-b8cc-b19a9016e9d5"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveSelector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""052bbab6-0578-4bc7-b510-f0540b0959cc"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveSelector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9d0d27b3-e04d-4a60-b198-bfed4b416f36"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveSelector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb31238b-6c25-412f-9b3a-715e7a6fafb8"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -281,6 +365,8 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         m_Ground_Move = m_Ground.FindAction("Move", throwIfNotFound: true);
         m_Ground_Aim = m_Ground.FindAction("Aim", throwIfNotFound: true);
         m_Ground_Shoot = m_Ground.FindAction("Shoot", throwIfNotFound: true);
+        m_Ground_MoveSelector = m_Ground.FindAction("MoveSelector", throwIfNotFound: true);
+        m_Ground_RotateSelection = m_Ground.FindAction("RotateSelection", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -343,6 +429,8 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
     private readonly InputAction m_Ground_Move;
     private readonly InputAction m_Ground_Aim;
     private readonly InputAction m_Ground_Shoot;
+    private readonly InputAction m_Ground_MoveSelector;
+    private readonly InputAction m_Ground_RotateSelection;
     public struct GroundActions
     {
         private @PlayerInp m_Wrapper;
@@ -350,6 +438,8 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Ground_Move;
         public InputAction @Aim => m_Wrapper.m_Ground_Aim;
         public InputAction @Shoot => m_Wrapper.m_Ground_Shoot;
+        public InputAction @MoveSelector => m_Wrapper.m_Ground_MoveSelector;
+        public InputAction @RotateSelection => m_Wrapper.m_Ground_RotateSelection;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -368,6 +458,12 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnShoot;
+                @MoveSelector.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnMoveSelector;
+                @MoveSelector.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnMoveSelector;
+                @MoveSelector.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnMoveSelector;
+                @RotateSelection.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
+                @RotateSelection.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
+                @RotateSelection.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnRotateSelection;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -381,6 +477,12 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @MoveSelector.started += instance.OnMoveSelector;
+                @MoveSelector.performed += instance.OnMoveSelector;
+                @MoveSelector.canceled += instance.OnMoveSelector;
+                @RotateSelection.started += instance.OnRotateSelection;
+                @RotateSelection.performed += instance.OnRotateSelection;
+                @RotateSelection.canceled += instance.OnRotateSelection;
             }
         }
     }
@@ -399,5 +501,7 @@ public partial class @PlayerInp : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnMoveSelector(InputAction.CallbackContext context);
+        void OnRotateSelection(InputAction.CallbackContext context);
     }
 }

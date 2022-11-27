@@ -37,8 +37,8 @@ public class LaserPuzzleSelector : MonoBehaviour
         puzzleElements.Add(puzzleElementsRow1);
         puzzleElements.Add(puzzleElementsRow2);
 
-        inp.Ground.Aim.started += (ctx) => MoveSelector(ctx);
-        inp.Ground.Shoot.performed += (ctx) => RotateSelected();
+        inp.Ground.MoveSelector.started += (ctx) => MoveSelector(ctx);
+        inp.Ground.RotateSelection.performed += (ctx) => RotateSelected();
     }
 
     void MoveSelector(InputAction.CallbackContext ctx) {
