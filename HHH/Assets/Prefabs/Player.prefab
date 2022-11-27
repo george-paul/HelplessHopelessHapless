@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 3360112568743960605}
   - component: {fileID: 3360112568743960608}
   - component: {fileID: 8085397886204705190}
+  - component: {fileID: 356802198361072989}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -329,3 +330,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.34
+--- !u!114 &356802198361072989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360112568743960599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a6ffe5874f1154096c1f88234239a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialogueLines:
+  - Hey! This looks like a maze!! Let's go in and see if we can find something useful
+  index: 0
+  typingSpeed: 0.03
+  playerIsClose: 0
+  fixUpdate: 0

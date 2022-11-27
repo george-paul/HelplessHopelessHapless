@@ -15,7 +15,7 @@ public class PlayerBullet : MonoBehaviour
         GameObject collided = collision.gameObject;
 
         // bullet ignores these
-        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Player") || collided.gameObject.name == "Global Light Trigger") {
+        if(collided.tag.StartsWith("Bullet") || collided.CompareTag("Player") || collided.gameObject.name == "Global Light Trigger" || collided.gameObject.name == "Maze Trigger" || collided.gameObject.name == "Laser Puzzle Trigger") {
             return;
         }
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
     [SerializeField] float delay = 3f;
 
-    public GameObject dialoguePanel;
+    public Image dialoguePanel;
     public Text dialogueText;
     public string[] dialogueLines;
     public int index;
@@ -16,18 +16,29 @@ public class NPC : MonoBehaviour
     public bool playerIsClose;
     public bool fixUpdate = false;
 
+    private void OnEnable() {
+        dialoguePanel = GameObject.Find("/Canvas/DialoguePanel").GetComponent<Image>();
+        dialogueText = GameObject.Find("/Canvas/DialoguePanel/DialogueText").GetComponent<Text>();
+    }
+
+    void SetVisibility(bool isVisible) {
+        dialogueText.enabled = isVisible;
+        dialoguePanel.enabled = isVisible;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(playerIsClose && !fixUpdate)
         {
-            if(dialoguePanel.activeInHierarchy)
+            if(dialoguePanel.enabled)
             {
                 zeroText();
             }
             else
             {
-                dialoguePanel.SetActive(true);
+                // dialoguePanel.SetActive(true);
+                SetVisibility(true);
                 StartCoroutine(Type());
                 fixUpdate = true;
             }
@@ -43,7 +54,8 @@ public class NPC : MonoBehaviour
     {
         dialogueText.text = "";
         index = 0;
-        dialoguePanel.SetActive(false);
+        // dialoguePanel.SetActive(false);
+        SetVisibility(false);
     }
 
     IEnumerator Type()
@@ -61,32 +73,33 @@ public class NPC : MonoBehaviour
         zeroText();
     }
 
-    public void NextLine()
-    {
-        if(index < dialogueLines.Length - 1)
-        {
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(Type());
-        }
-        else
-        {
-            zeroText();
-        }
-    }
+    // public void NextLine()
+    // {
+    //     if(index < dialogueLines.Length - 1)
+    //     {
+    //         index++;
+    //         dialogueText.text = "";
+    //         StartCoroutine(Type());
+    //     }
+    //     else
+    //     {
+    //         zeroText();
+    //     }
+    // }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("Entered: " + other.name);
+        if (other.name.CompareTo("Maze Trigger") == 0)
         {
             playerIsClose = true;
-            // dialoguePanel.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("Exited: " + other.name);
+        if (other.name.CompareTo("Maze Trigger") == 0)
         {
             playerIsClose = false;
             zeroText();
