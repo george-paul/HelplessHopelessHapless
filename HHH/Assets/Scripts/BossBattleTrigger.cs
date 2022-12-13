@@ -6,11 +6,13 @@ public class BossBattleTrigger : MonoBehaviour
 {
     public GameObject cardinalEnemy;
     public AudioSource bossMusic;
+    public AudioSource gameMusic;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
             Instantiate(cardinalEnemy, transform.position, transform.rotation);
             bossMusic.Play();
+            gameMusic.Pause();
         }
     }
 }

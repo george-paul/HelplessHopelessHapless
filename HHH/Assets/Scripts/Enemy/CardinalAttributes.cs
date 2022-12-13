@@ -10,6 +10,7 @@ public class CardinalAttributes : MonoBehaviour
 
     private Slider cardinalHpDisplaySlider;
     public AudioSource bossMusic;
+    public AudioSource gameMusic;
 
     private void Start() {
         cardinalHpDisplaySlider = transform.Find("Cardinal HP Canvas").transform.Find("Cardinal HP Slider").GetComponent<Slider>();
@@ -21,6 +22,7 @@ public class CardinalAttributes : MonoBehaviour
         if(cardinalHp <= 0) {
             Destroy(gameObject);
             bossMusic.Stop();
+            gameMusic.Play();
         }
         cardinalHpDisplaySlider.value = cardinalHp/maxCardinalHp;
     }
